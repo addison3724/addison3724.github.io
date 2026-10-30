@@ -3,25 +3,25 @@
 const INTRO_SECONDS = 6;   // how long the info card shows before the first clip
 const clips = [
   { intro: true,                        dur: INTRO_SECONDS + 's', skills: ['Intro'], desc: 'Addison Cravotta | Defender | Class of 2027' },
-  { file: 'pinerichland_clip1.mp4',     dur: '13s', skills: ['Add tags'],            desc: 'vs. Pine-Richland — clip description' },
-  { file: 'northallegheny_clip1.mp4',   dur: '8s',  skills: ['Add tags'],            desc: 'vs. North Allegheny — clip description' },
-  { file: 'northallegheny_clip2.mp4',   dur: '6s',  skills: ['Add tags'],            desc: 'vs. North Allegheny — clip description' },
-  { file: 'northallegheny_clip3.mp4',   dur: '17s', skills: ['Add tags'],            desc: 'vs. North Allegheny — clip description' },
-  { file: 'northallegheny_clip4.mp4',   dur: '9s',  skills: ['Add tags'],            desc: 'vs. North Allegheny — clip description' },
-  { file: 'northhills_clip1.mp4',       dur: '10s', skills: ['Add tags'],            desc: 'vs. North Hills — clip description' },
-  { file: 'northhills_clip2.mp4',       dur: '10s', skills: ['Add tags'],            desc: 'vs. North Hills — clip description' },
-  { file: 'butler_clip1.mp4',           dur: '9s',  skills: ['Add tags'],            desc: 'vs. Butler — clip description' },
-  { file: 'butler_clip2.mp4',           dur: '10s', skills: ['Add tags'],            desc: 'vs. Butler — clip description' },
-  { file: 'butler_clip3.mp4',           dur: '8s',  skills: ['Add tags'],            desc: 'vs. Butler — clip description' },
-  { file: 'butler_clip4.mp4',           dur: '6s',  skills: ['Add tags'],            desc: 'vs. Butler — clip description' },
-  { file: 'foxchapel_clip1.mp4',        dur: '10s', skills: ['Add tags'],            desc: 'vs. Fox Chapel — clip description' },
-  { file: 'franklinregional_clip1.mp4', dur: '8s',  skills: ['Add tags'],            desc: 'vs. Franklin Regional — clip description' },
-  { file: 'franklinregional_clip2.mp4', dur: '6s',  skills: ['Add tags'],            desc: 'vs. Franklin Regional — clip description' },
-  { file: 'franklinregional_clip3.mp4', dur: '8s',  skills: ['Add tags'],            desc: 'vs. Franklin Regional — clip description' },
-  { file: 'franklinregional_clip4.mp4', dur: '11s', skills: ['Add tags'],            desc: 'vs. Franklin Regional — clip description' },
-  { file: 'gateway_clip1.mp4',          dur: '9s',  skills: ['Add tags'],            desc: 'vs. Gateway — clip description' },
-  { file: 'gateway_clip2.mp4',          dur: '11s', skills: ['Add tags'],            desc: 'vs. Gateway — clip description' },
-  { file: 'gateway_clip3.mp4',          dur: '11s', skills: ['Add tags'],            desc: 'vs. Gateway — clip description' },
+  { file: 'pinerichland_clip1.mp4',     dur: '13s', skills: [],            desc: 'vs. Pine-Richland' },
+  { file: 'northallegheny_clip1.mp4',   dur: '8s',  skills: [],            desc: 'vs. North Allegheny' },
+  { file: 'northallegheny_clip2.mp4',   dur: '6s',  skills: [],            desc: 'vs. North Allegheny' },
+  { file: 'northallegheny_clip3.mp4',   dur: '17s', skills: [],            desc: 'vs. North Allegheny' },
+  { file: 'northallegheny_clip4.mp4',   dur: '9s',  skills: [],            desc: 'vs. North Allegheny' },
+  { file: 'northhills_clip1.mp4',       dur: '10s', skills: [],            desc: 'vs. North Hills' },
+  { file: 'northhills_clip2.mp4',       dur: '10s', skills: [],            desc: 'vs. North Hills' },
+  { file: 'butler_clip1.mp4',           dur: '9s',  skills: [],            desc: 'vs. Butler' },
+  { file: 'butler_clip2.mp4',           dur: '10s', skills: [],            desc: 'vs. Butler' },
+  { file: 'butler_clip3.mp4',           dur: '8s',  skills: [],            desc: 'vs. Butler' },
+  { file: 'butler_clip4.mp4',           dur: '6s',  skills: [],            desc: 'vs. Butler' },
+  { file: 'foxchapel_clip1.mp4',        dur: '10s', skills: [],            desc: 'vs. Fox Chapel' },
+  { file: 'franklinregional_clip1.mp4', dur: '8s',  skills: [],            desc: 'vs. Franklin Regional' },
+  { file: 'franklinregional_clip2.mp4', dur: '6s',  skills: [],            desc: 'vs. Franklin Regional' },
+  { file: 'franklinregional_clip3.mp4', dur: '8s',  skills: [],            desc: 'vs. Franklin Regional' },
+  { file: 'franklinregional_clip4.mp4', dur: '11s', skills: [],            desc: 'vs. Franklin Regional' },
+  { file: 'gateway_clip1.mp4',          dur: '9s',  skills: [],            desc: 'vs. Gateway' },
+  { file: 'gateway_clip2.mp4',          dur: '11s', skills: [],            desc: 'vs. Gateway' },
+  { file: 'gateway_clip3.mp4',          dur: '11s', skills: [],            desc: 'vs. Gateway' },
 ];
 const CLIP_DIR = 'clips-web/';
 let current = 0;
@@ -32,7 +32,7 @@ clips.forEach((c, i) => {
   b.type = 'button'; b.className = 'clip'; b.id = 'clip-' + (i + 1);
   b.setAttribute('aria-current', i === 0 ? 'true' : 'false');
   b.innerHTML = `<div class="head"><span class="num">${i + 1}</span><span class="dur">${c.dur}</span></div>
-    <div class="skills">${c.skills.map(s => `<span class="skill">${s}</span>`).join('')}</div>
+    ${c.skills.length ? `<div class="skills">${c.skills.map(s => `<span class="skill">${s}</span>`).join('')}</div>` : ''}
     <div class="desc">${c.desc}</div>`;
   b.addEventListener('click', () => loadClip(i, true));
   list.appendChild(b);
