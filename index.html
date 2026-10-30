@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Addison Cravotta | Highlight Reel</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Source+Sans+3:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="topbar">
+    <div class="brand"><span class="mark">AC</span>ADDISON CRAVOTTA</div>
+    <div class="topbar-tag">Recruiting Profile</div>
+  </header>
+
+  <section class="profile">
+    <div class="avatar" role="img" aria-label="Addison Cravotta headshot"></div>
+    <div>
+      <h1>Addison Cravotta</h1>
+      <div class="meta">
+        <span class="key">Defender &nbsp;·&nbsp; Class of 2027 &nbsp;·&nbsp; Pittsburgh, PA</span>
+        <span>Seneca Valley High School &nbsp;#24</span>
+        <span>Riverhounds Development Academy</span>
+      </div>
+      <a class="share" href="#reel" id="share-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>
+        Share Link
+      </a>
+    </div>
+  </section>
+
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" aria-selected="true" aria-controls="reel" id="tab-reel">HIGHLIGHT REEL</button>
+    <button class="tab" role="tab" aria-selected="false" aria-controls="games" id="tab-games">GAMES</button>
+    <button class="tab" role="tab" aria-selected="false" aria-controls="bio" id="tab-bio">BIO</button>
+  </div>
+
+  <section class="panel stage" id="reel" role="tabpanel" aria-labelledby="tab-reel">
+    <div class="player" id="player" aria-label="Highlight reel video">
+      <!-- Each clip is its own file in clips-web/. The list of clips (file, tags, caption) lives at the top of script.js. -->
+      <video class="reel-video" id="reel-video" preload="metadata" playsinline>
+        Your browser does not support the video tag.
+      </video>
+      <div class="photo"></div>
+      <div class="fade"></div>
+      <div class="card">
+        <h2 class="name">Addison Cravotta</h2>
+        <div class="pos">Defender</div>
+        <div class="row"><span class="class">CLASS OF 2027</span><span class="gpa">4.8 GPA</span></div>
+        <div class="teams">Riverhounds Development Academy &nbsp;#37<br>Seneca Valley High School &nbsp;#24</div>
+        <hr>
+        <div class="honors">2026 WPIAL AAAA All-Section Team</div>
+        <hr>
+        <div class="contact">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>addisonmc23@icloud.com</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>@addison.cravotta</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>(412) 789-8733</span>
+        </div>
+      </div>
+      <div class="logos">
+        <img class="logo logo-img" src="riverhounds.webp" alt="Pittsburgh Riverhounds SC logo">
+        <img class="logo logo-img logo-sv" src="Senecavalleysd.png" alt="Seneca Valley High School logo">
+      </div>
+      <div class="watermark">AC</div>
+      <div class="controls">
+        <div class="progress"><i></i></div>
+        <div class="ctl-row">
+          <span class="time" id="time-cur">00:00</span>
+          <div class="mid">
+            <button type="button" id="back" aria-label="Previous clip"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h2v14H6zM20 5v14L9 12z"/></svg></button>
+            <button type="button" id="play" aria-label="Play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 5v14l12-7z"/></svg></button>
+            <button type="button" id="fwd" aria-label="Next clip"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 5h2v14h-2zM4 5v14l11-7z"/></svg></button>
+          </div>
+          <span class="time right" id="time-end">00:00</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="clips" id="clips" aria-label="Clips"></div>
+  </section>
+
+  <section class="panel" id="games" role="tabpanel" aria-labelledby="tab-games" hidden>
+    <div class="panel-text">
+      <h2>Games</h2>
+      <p class="season">Seneca Valley Varsity Girls Soccer &nbsp;·&nbsp; 2026–27</p>
+      <div class="record" id="record"></div>
+      <div class="games" id="games-list"></div>
+    </div>
+  </section>
+
+  <section class="panel" id="bio" role="tabpanel" aria-labelledby="tab-bio" hidden>
+    <div class="panel-text">
+      <h2>Bio</h2>
+      <p>I have played soccer throughout my entire life, since my sophomore year at Seneca Valley High School I have been the starting center back. With being in this position, I pride myself on being a strong, dependable, and vocal leader. Since being selected for team captain in the 26-27 season, I have used my leadership, competitiveness, and work ethic to help my team succeed.</p>
+
+      <h3>Player Info</h3>
+      <dl class="facts">
+        <dt>Position</dt><dd>Defender</dd>
+        <dt>Class</dt><dd>2027</dd>
+        <dt>Hometown</dt><dd>Pittsburgh, PA</dd>
+        <dt>Jersey Number</dt><dd>#24 Seneca Valley</dd>
+        <dt>Height</dt><dd>5' 8"</dd>
+        <dt>Dominant Foot</dt><dd>Right</dd>
+        <dt>Club Team</dt><dd>Riverhounds Development Academy</dd>
+        <dt>High School</dt><dd>Seneca Valley High School</dd>
+      </dl>
+
+      <h3>Academics</h3>
+      <dl class="facts">
+        <dt>GPA</dt><dd>4.8</dd>
+        <dt>Intended Major</dt><dd>Nursing</dd>
+        <dt>Honor Society</dt><dd>National Honor Society</dd>
+      </dl>
+
+      <h3>Honors &amp; Awards</h3>
+      <ul class="honors-list">
+        <li>2026 WPIAL AAAA All-Section Team</li>
+      </ul>
+
+      <h3>Contact</h3>
+      <dl class="facts">
+        <dt>Email</dt><dd>addisonmc23@icloud.com</dd>
+        <dt>Phone</dt><dd>(412) 789-8733</dd>
+        <dt>Social</dt><dd>@addison.cravotta</dd>
+        <dt>Riverhounds Coach</dt><dd>Mike Proviano</dd>
+        <dt>High School Coach</dt><dd>Mark Perry</dd>
+      </dl>
+    </div>
+  </section>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
