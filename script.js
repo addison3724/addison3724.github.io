@@ -111,6 +111,15 @@ const togglePlay = () => {
   video.paused ? video.play() : video.pause();
 };
 playBtn.addEventListener('click', togglePlay);
+// Full screen: the whole player when the browser allows it (keeps the intro card and clip hand-offs),
+// otherwise just the video (iPhone Safari).
+const fsBtn = document.getElementById('fullscreen');
+fsBtn.addEventListener('click', () => {
+  if (document.fullscreenElement) { document.exitFullscreen(); return; }
+  if (player.requestFullscreen) player.requestFullscreen().catch(() => {});
+  else if (video.webkitEnterFullscreen) { if (inIntro()) loadClip(current + 1, true); video.webkitEnterFullscreen(); }
+});
+document.addEventListener('fullscreenchange', () => fsBtn.setAttribute('aria-label', document.fullscreenElement ? 'Exit full screen' : 'Full screen'));
 document.getElementById('back').addEventListener('click', () => {
   // Within the first 2 seconds, go to the previous clip; otherwise restart this one
   const t = inIntro() ? introElapsed : video.currentTime;
